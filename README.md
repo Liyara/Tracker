@@ -1,12 +1,12 @@
-#Tracker
+# Tracker
 Tracker is a discord bot infrustructure designed to track and post information.
 Currently, there is 1 finished tracking module:
 [osu! Tracker](#osu!)
 
-##osu!
+## osu!
 The osu! tracking module tracks information about user scores, you can tell Tracker which players' scores you;d like to track, as well as how far into their top plays to check.
 
-###Commands
+### Commands
 `!track-osu <"user name" [limit]> ...`
 
 Informs Tracker to track the specified osu! players&apos; scores in this channel.
