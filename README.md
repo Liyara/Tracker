@@ -1,5 +1,5 @@
 # Tracker
-Tracker is a discord bot infrustructure designed to track and post information.
+Tracker is a discord bot infrastructure designed to track and post information.
 Currently, there is 1 finished tracking module:
 [osu! Tracker](#osu!)
 
