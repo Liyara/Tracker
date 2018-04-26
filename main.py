@@ -142,10 +142,10 @@ class Main:
 					raise
 			elif (build is not None):
 				if (arg[-1] == '"'):
-					name = build + arg[0:-1]
+					name = build + ' ' + arg[0:-1]
 					build = None
 				else:
-					build += arg
+					build += ' ' + arg
 			else:
 				try:
 					lim = int(arg)
