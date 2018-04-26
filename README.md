@@ -3,6 +3,8 @@ Tracker is a discord bot infrastructure designed to track and post information.
 Currently, there is 1 finished tracking module:
 [osu! Tracker](#osu!)
 
+[Add Tracker to your server](https://discordapp.com/oauth2/authorize?client_id=439066525064757248&scope=bot&permissions=67234880)
+
 ## osu!
 The osu! tracking module tracks information about user scores on the popular computer game, [osu!](https://osu.ppy.sh/). You can tell Tracker which players&apos; scores you&apos;d like to track, as well as how far into their top plays to check.
 
