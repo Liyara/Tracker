@@ -13,7 +13,7 @@ Informs Tracker to track the specified osu! players&apos; scores in this channel
 - *user name* - specifies which player to track, the quotes are optional if the player&apos;s username has no spaces.
 - *limit* - optional, specifies how many plays Tracker should look through before stopping. If empty, defaults to 100. Maximum is 100, minimum is 1.
 
-`!untrack-osu <"user name">`
+`!untrack-osu <"user name"> ...`
 
 Informs Tracker to stop tracking the specified osu! players&apos; scores in this channel.
 - *user name* - specifies which player to stop tracking, the quotes are optional if the player&apos;s username has no spaces.
