@@ -1,0 +1,8 @@
+discord
+psycopg2
+pytz
+py_flags
+aiopg
+aiohttp
+cchardet
+aiodns
