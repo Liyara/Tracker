@@ -101,7 +101,7 @@ class DateTime:
 					ma = (await self._max(t))
 					if (self.__dt[t] <= ma):
 						break
-					self.__dt[t] -= ma - (1 - mi)
+					self.__dt[t] = (mi + (self.__dt[t] - ma)) - 1
 					dic = {}
 					dic[str(self.__dn[self.__dn.index(t) - 1]) + 's'] = 1
 					await (self.offset(**dic))
