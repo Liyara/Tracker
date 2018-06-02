@@ -77,16 +77,16 @@ class OsuTracker(TrackerModule):
 	async def parseJSON(self, session, addr):
 		parsed_json = None
 		string = None
-		print("parsing", end = "")
+		# print("parsing", end = "")
 		try:
 			async with async_timeout.timeout(3):
 				async with session.get(addr) as response:
 					print("... ", end = "")
 					parsed_json = (await response.json())
 		except asyncio.TimeoutError:
-			print(" [FAILED]")
+			# print(" [FAILED]")
 			return (await self.parseJSON(session, addr))
-		print("complete.")
+		# print("complete.")
 		return parsed_json
 
 	async def getData(self, page, **args):
@@ -223,6 +223,7 @@ class OsuTracker(TrackerModule):
 			for score in scores:
 				c = c + 1
 				dt = (await DateTime.fromString(score["date"]))
+				
 				if (await (dt.moreRecentThan(player.checked))):
 					
 					player.checked = (await DateTime.utc(8))
@@ -296,7 +297,8 @@ class OsuTracker(TrackerModule):
 						if (channel.id in player.misc and c <= int(player.misc[channel.id])):
 							result["scores"][-1]["channels"].append(channel)
 
-		
+		else:
+			print((await dt.asString()) + "Not more recent than " + (await player.checked.asString()))
 		return result
 
 	async def generateResponse(self):
