@@ -114,7 +114,7 @@ class OsuTracker(TrackerModule):
 				await (self.__queue(err = "Could not find player data"))
 				return False
 			if (data["user_id"] is not None):
-				curDate = (await DateTime.utc(8))
+				curDate = (await DateTime.utc())
 				self.players.append((await Player.create(
 					id = data["user_id"],
 					name = str(name),
@@ -226,7 +226,7 @@ class OsuTracker(TrackerModule):
 				
 				if (await (dt.moreRecentThan(player.checked))):
 					
-					player.checked = (await DateTime.utc(8))
+					player.checked = (await DateTime.utc())
 					await (player.updateInDB(self.__db))
 					print (player.name + " updated " + (await player.checked.asString()))
 					
@@ -298,7 +298,7 @@ class OsuTracker(TrackerModule):
 							result["scores"][-1]["channels"].append(channel)
 
 				else:
-					print((await dt.asString()) + "Not more recent than " + (await player.checked.asString()))
+					# print((await dt.asString()) + " Not more recent than " + (await player.checked.asString()))
 		return result
 
 	async def generateResponse(self):
