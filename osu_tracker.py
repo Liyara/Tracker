@@ -223,7 +223,6 @@ class OsuTracker(TrackerModule):
 			for score in scores:
 				c = c + 1
 				dt = (await DateTime.fromString(score["date"]))
-				await (dt.offset(seconds = 10))
 				if (await (dt.moreRecentThan(player.checked))):
 					
 					player.checked = (await DateTime.utc(8))
