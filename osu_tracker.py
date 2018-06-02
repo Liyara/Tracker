@@ -81,7 +81,7 @@ class OsuTracker(TrackerModule):
 		try:
 			async with async_timeout.timeout(3):
 				async with session.get(addr) as response:
-					print("... ", end = "")
+					# print("... ", end = "")
 					parsed_json = (await response.json())
 		except asyncio.TimeoutError:
 			# print(" [FAILED]")
@@ -226,10 +226,6 @@ class OsuTracker(TrackerModule):
 				
 				if (await (dt.moreRecentThan(player.checked))):
 					
-					player.checked = (await DateTime.utc())
-					await (player.updateInDB(self.__db))
-					print (player.name + " updated " + (await player.checked.asString()))
-					
 					mods = (await self.parseMods(score["enabled_mods"]))
 					modIconURL = (await self.__getModIcons(mods))
 					bmap = (await self.getData("get_beatmaps", b = score["beatmap_id"], m = 0))[0]
@@ -296,6 +292,10 @@ class OsuTracker(TrackerModule):
 					for channel in player.channels:
 						if (channel.id in player.misc and c <= int(player.misc[channel.id])):
 							result["scores"][-1]["channels"].append(channel)
+							
+		player.checked = (await DateTime.utc())
+		await (player.updateInDB(self.__db))
+		print (player.name + " updated " + (await player.checked.asString()))
 		return result
 
 	async def generateResponse(self):
