@@ -296,9 +296,6 @@ class OsuTracker(TrackerModule):
 					for channel in player.channels:
 						if (channel.id in player.misc and c <= int(player.misc[channel.id])):
 							result["scores"][-1]["channels"].append(channel)
-
-				else:
-					# print((await dt.asString()) + " Not more recent than " + (await player.checked.asString()))
 		return result
 
 	async def generateResponse(self):
