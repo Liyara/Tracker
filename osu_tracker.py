@@ -223,8 +223,13 @@ class OsuTracker(TrackerModule):
 			for score in scores:
 				c = c + 1
 				dt = (await DateTime.fromString(score["date"]))
-				await (dt.offset(seconds = 5))
+				await (dt.offset(seconds = 10))
 				if (await (dt.moreRecentThan(player.checked))):
+					
+					player.checked = (await DateTime.utc(8))
+					await (player.updateInDB(self.__db))
+					print (player.name + " updated " + (await player.checked.asString()))
+					
 					mods = (await self.parseMods(score["enabled_mods"]))
 					modIconURL = (await self.__getModIcons(mods))
 					bmap = (await self.getData("get_beatmaps", b = score["beatmap_id"], m = 0))[0]
@@ -292,9 +297,7 @@ class OsuTracker(TrackerModule):
 						if (channel.id in player.misc and c <= int(player.misc[channel.id])):
 							result["scores"][-1]["channels"].append(channel)
 
-		player.checked = (await DateTime.utc(8))
-		await (player.updateInDB(self.__db))
-		print (player.name + " updated " + (await player.checked.asString()))
+		
 		return result
 
 	async def generateResponse(self):
