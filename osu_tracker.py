@@ -223,7 +223,7 @@ class OsuTracker(TrackerModule):
 			for score in scores:
 				c = c + 1
 				dt = (await DateTime.fromString(score["date"]))
-				await (player.checked.offset(seconds = -3))
+				await (dt.offset(seconds = 3))
 				if (await (dt.moreRecentThan(player.checked))):
 					mods = (await self.parseMods(score["enabled_mods"]))
 					modIconURL = (await self.__getModIcons(mods))
