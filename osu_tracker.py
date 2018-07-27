@@ -281,7 +281,7 @@ class OsuTracker(TrackerModule):
 						fields = [
 							(await Embed.Field.create(
 								name = "<:s_:433281051679522836> " + pp + "pp   " + str(round(accuracy, 2)) + "%   PB #" + str(c),
-								value = score["countmiss"] + " x miss\t" + score["count100"] + " x 100\t" + score["count50"] + " x 50\t" + 
+								value = score["countmiss"] + " x miss • • " + score["count100"] + " x 100 • • " + score["count50"] + " x 50 • • " + 
 									score["maxcombo"] + " / " + bmap["max_combo"],
 								inline = False
 							))
